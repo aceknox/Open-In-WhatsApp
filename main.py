@@ -32,7 +32,7 @@ except AssertionError:
 try:
     bot = Bot(BOT_TOKEN)
 except (TypeError, TelegramError):
-    logger.critical("⚠️ Invalid bot token")
+    logger.critical(" Invalid bot token")
     exit(1)
 
 app = FastAPI()
@@ -84,7 +84,7 @@ async def phone_handler(update: Update):
             [
                 [
                     InlineKeyboardButton(
-                        text="🔗 Open chat",
+                        text="🔗 Open chat , just click here",
                         url=f"https://api.whatsapp.com/send?phone={update.effective_message.text.replace(' ','').replace('-','')}",
                     )
                 ]
@@ -110,7 +110,7 @@ async def update_handler(update: Update):
         else:
             await cmd_help(update)
     except (AttributeError, TelegramError) as err:
-        logging.error(f"🔴 Exception!: {err}")
+        logging.error(f" Exception!: {err}")
 
 
 @app.post("/telegram-update-4e1cb6")
